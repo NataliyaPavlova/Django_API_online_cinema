@@ -1,1 +1,20 @@
+version: "3"
+   
+services:
+   web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
 
+   frontend:  
+    build: ./nginx
+    restart: always
+    environment:
+      SERVER_NAME: "movies"
+      API_HOST: "backend:8000"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/site.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - "web"

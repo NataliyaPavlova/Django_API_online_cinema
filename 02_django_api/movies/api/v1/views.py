@@ -61,4 +61,3 @@ class MoviesDetailApi(MoviesApiMixin, BaseDetailView):
 
     def get(self, request, pk):
         return self.render_to_response(self.context_data(self.get_queryset(), pk=pk))
-    

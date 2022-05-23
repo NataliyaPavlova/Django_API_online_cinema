@@ -1,16 +1,15 @@
-FROM python:3.8
+FROM python:3.10-buster
+# В версии slim не могу установить либу psycopg2
 
 WORKDIR /app
 COPY requirements.txt /app/requirements.txt
-COPY . .
 
 RUN python -m venv env && \
-    apt-get update --yes --quiet && \
-    apt-get install --yes --quiet --no-install-recommends \
-                    libpq-dev python-dev libjpeg62-turbo-dev zlib1g-dev && \
     env/bin/pip install --upgrade pip && \
     env/bin/pip install -r /app/requirements.txt &&\
     mkdir media && mkdir static
+
+COPY . .
 
 ENV PYTHONUNBUFFERED=1 \
     PORT=8000 \

@@ -17,8 +17,5 @@ ENV PYTHONUNBUFFERED=1 \
 
 EXPOSE 8000
 
-CMD python manage.py makemigrations movies && \
-    python manage.py migrate && \
-    python manage.py collectstatic --no-input && \
-    gunicorn -b 0.0.0.0:8000 --log-level=debug config.wsgi
+CMD gunicorn -b 0.0.0.0:8000 --log-level=debug config.wsgi
 

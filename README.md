@@ -1,6 +1,6 @@
 ## What is it 
 
-API for online cinema. 
+API for online cinema service. 
 
 ## Stack
 

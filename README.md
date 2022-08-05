@@ -1,10 +1,11 @@
-# Описание задания на 2 спринт
- 
-Описание структуры и порядок выполнения проекта:
+## What is it 
 
-1. `docker_compose` — задача про настройку Nginx, Docker и Django.
-2. `django_api` — задача про реализацию API для выдачи информации о фильме.
+API for online cinema. 
 
-Напоминаем, что все части работы нужно сдавать на ревью одновременно.
+## Stack
 
-Успехов!
+Docker Compose, Nginx, PostgreSQL, Django
+
+## How to use
+
+docker-compose up --build
